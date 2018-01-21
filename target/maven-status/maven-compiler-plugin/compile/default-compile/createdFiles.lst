@@ -1,0 +1,10 @@
+com\schronisko\jpa\DBActions.class
+com\schronisko\add\AddToDBServlet.class
+com\schronisko\remove\RemoveFromDBServlet.class
+com\schronisko\status\Zwierze.class
+com\schronisko\login\LoginServlet.class
+com\schronisko\menu\MenuServlet.class
+com\schronisko\status\DBConnectionManager.class
+com\schronisko\logout\LogoutServlet.class
+com\schronisko\status\Konto.class
+com\schronisko\status\StatusServlet.class

@@ -1,11 +1,15 @@
 package com.schronisko.menu;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class MenuServlet
@@ -29,10 +33,11 @@ public class MenuServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		 if (request.getParameter("b1") != null) {
-			 response.sendRedirect("http://localhost:8080/SchroniskoAPP/dodaj.jsp"); 
+			 request.getRequestDispatcher("/dodaj.jsp").include(request, response);   
 	        } else if (request.getParameter("b2") != null) {
-	        	response.sendRedirect("http://localhost:8080/SchroniskoAPP/usun.jsp");
+	        	 request.getRequestDispatcher("/usun.jsp").include(request, response);  
 	        }
+	       
 	}
 
 }

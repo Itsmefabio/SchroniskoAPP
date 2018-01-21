@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<jsp:include page="style.css"/>
 <div id=1, align=center >
 <form name="loginForm" method="post" action="LoginServlet">
     Użytkownik: <input type="text" name="username"/> <br/>

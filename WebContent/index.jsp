@@ -20,17 +20,20 @@ text-align=right;
 </style>
 <title>strona glowna</title>
 </head>
-
-<body background-color: linen>
-<div id=2>
-<form action="http://localhost:8080/SchroniskoAPP/MenuServlet" method="post" target="_blank">
+<jsp:include page="style.css"/>
+<body "background-color: linen">
+<div class="topnav">
+<form action="/SchroniskoAPP/MenuServlet" method="post" target="_blank">
     <input type="submit" name="b1" value="Dodaj Zwierze" /><br/>
     <input type="submit" name="b2" value="Usun Zwierze" /><br/>
     
 </form>
+<form action="/SchroniskoAPP/LogoutServlet" method="post">
+<input type="submit" name="b3" value="Wyloguj" /><br/>
+</form>
 </div>
 <br/>
-<div id=1>
+<div class="content">
 <h1>Lista Zwierząt</h1>  
   
 <%

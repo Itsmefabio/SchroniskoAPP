@@ -1,7 +1,15 @@
 package com.schronisko.status;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "zwierzeta")
 public class Zwierze {
+	public Zwierze() {}
 	int id;
+	@Id
+	@Column(name = "id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public int getId() {
 		return id;
 	}

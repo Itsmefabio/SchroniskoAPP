@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form name="usunzwierze" method="post" action="http://localhost:8080/SchroniskoAPP/RemoveFromDBServlet">
+<form name="usunzwierze" method="post" action="/SchroniskoAPP/RemoveFromDBServlet">
     id <input type="text" name="id"/> <br/>
    
     <input type="submit" value="usun record z bazy danych" />
@@ -16,7 +16,7 @@
 
  
 </form>
-<form name="maintenance" method="post" action="http://localhost:8080/SchroniskoAPP/AddToDBServlet">
+<form name="maintenance" method="post" action="/SchroniskoAPP/AddToDBServlet">
 
  <button onclick="self.close()">Zamknij</button>
 </form>

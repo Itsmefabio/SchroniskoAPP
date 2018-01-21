@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.schronisko.jpa.DBActions;
 import com.schronisko.status.DBConnectionManager;
 import com.schronisko.status.Zwierze;
 
@@ -33,35 +34,20 @@ public class RemoveFromDBServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-        int id=Integer.valueOf(request.getParameter("id"));
-         ;
-        try {
-        	Class.forName("com.mysql.jdbc.Driver");
-			Connection connection2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/schronisko","root","kolor1234");
-
-
-		System.out.println("ok");
-		String stmt=("delete from zwierzeta where id=? ");
-		PreparedStatement pst4=connection2.prepareStatement(stmt);
-		pst4.setInt(1,id);
-		pst4.executeUpdate();
-		pst4.close();
-		connection2.close();
-	
-		System.out.println("wpis usuniety z bazy");
+        int id2=Integer.valueOf(request.getParameter("id"));
+         
+       DBActions dbActionRemove= new DBActions();
+       dbActionRemove.setup();
+       dbActionRemove.delete(id2);
+       dbActionRemove.exit();
+        System.out.println("wpis usuniety z bazy");
+        response.setContentType("text/html;charset=UTF-8");	
 		PrintWriter pw2= response.getWriter();
-			pw2.println("wpis usuniety z bazy.");
+			pw2.println("wpis usuniêty z bazy.");
 			RequestDispatcher view = request.getRequestDispatcher("/usun.jsp");      
-	        view.include(request, response);
+      view.include(request, response);
 		
-        } catch (ClassNotFoundException e) {
 
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 }
 
 

@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.schronisko.jpa.DBActions;
 import com.schronisko.status.DBConnectionManager;
 
 /**
@@ -24,24 +25,18 @@ import com.schronisko.status.DBConnectionManager;
 public class AddToDBServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+  
     public AddToDBServlet() {
         super();
-        // TODO Auto-generated constructor stub
+     
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		 String imie = request.getParameter("imie");
 	        String plec = request.getParameter("plec");
@@ -55,39 +50,49 @@ public class AddToDBServlet extends HttpServlet {
 			RequestDispatcher view = request.getRequestDispatcher("/dodaj.jsp");      
 	        view.include(request, response);}
 			else {
-	        try {
-	        	Class.forName("com.mysql.jdbc.Driver");
-				Connection connection2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/schronisko","root","kolor1234");
-
-
-			System.out.println("ok");
-			String stmt=("insert into zwierzeta(imie,plec,wiek,waga,opiekun)values(?,?,?,?,?) ");
-			PreparedStatement pst2=connection2.prepareStatement(stmt);
-			
-			pst2.setString(1,imie);
-			pst2.setString(2,plec);
-			pst2.setInt(3,wiek);
-			pst2.setInt(4,waga);
-			pst2.setString(5,opiekun);
-			pst2.executeUpdate();
-			
-			pst2.close();
-			connection2.close();
-			System.out.println("wpis dodany do bazy");
-			 pw1= response.getWriter();
-				pw1.println("wpis dodany do bazy");
+				
+				 DBActions dbactionAdd=new	DBActions();
+				 
+				 dbactionAdd.setup();
+				 dbactionAdd.create(imie, plec, waga, wiek, opiekun);
+				 dbactionAdd.exit();
+				 pw1= response.getWriter();
+	pw1.println("wpis dodany do bazy");
 				RequestDispatcher view = request.getRequestDispatcher("/dodaj.jsp");      
 		        view.include(request, response); 
-	        } catch (ClassNotFoundException e) {
+//	        try {
+//	        	Class.forName("com.mysql.jdbc.Driver");
+//				Connection connection2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/schronisko","root","kolor1234");
+//
+//
+//			System.out.println("ok");
+//			String stmt=("insert into zwierzeta(imie,plec,wiek,waga,opiekun)values(?,?,?,?,?) ");
+//			PreparedStatement pst2=connection2.prepareStatement(stmt);
+//			
+//			pst2.setString(1,imie);
+//			pst2.setString(2,plec);
+//			pst2.setInt(3,wiek);
+//			pst2.setInt(4,waga);
+//			pst2.setString(5,opiekun);
+//			pst2.executeUpdate();
+//			
+//			pst2.close();
+//			connection2.close();
+//			System.out.println("wpis dodany do bazy");
+//			 pw1= response.getWriter();
+//				pw1.println("wpis dodany do bazy");
+//				RequestDispatcher view = request.getRequestDispatcher("/dodaj.jsp");      
+//		        view.include(request, response); 
+//	        } catch (ClassNotFoundException e) {
+//
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			} catch (SQLException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//	      
+//			
+//	}
 
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-	      
-			
-	}
-
-	}}
+	}}}
