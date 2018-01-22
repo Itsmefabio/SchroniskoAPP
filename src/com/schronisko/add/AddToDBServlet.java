@@ -18,9 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.schronisko.jpa.DBActions;
 import com.schronisko.status.DBConnectionManager;
 
-/**
- * Servlet implementation class AddToDBServlet
- */
+
 @WebServlet("/AddToDBServlet")
 public class AddToDBServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -44,8 +42,13 @@ public class AddToDBServlet extends HttpServlet {
 	         int waga=Integer.valueOf(request.getParameter("wiek"));
 	         String opiekun=request.getParameter("opiekun");
 	         PrintWriter pw1 = null;
-			if(DBConnectionManager.countRows()==20) {
+	         DBActions dbactionCountRows= new	DBActions();
+	         dbactionCountRows.setup();
+	         dbactionCountRows.numberOfRows();
+	         dbactionCountRows.exit();
+	         if(dbactionCountRows.numberOfRows()==20) {
 	        	 pw1= response.getWriter();
+	        	 response.setContentType("text/html;charset=UTF-8");
 			pw1.println("Schronisko jest pe³ne, nie mo¿esz dodaæ.");
 			RequestDispatcher view = request.getRequestDispatcher("/dodaj.jsp");      
 	        view.include(request, response);}
@@ -57,42 +60,10 @@ public class AddToDBServlet extends HttpServlet {
 				 dbactionAdd.create(imie, plec, waga, wiek, opiekun);
 				 dbactionAdd.exit();
 				 pw1= response.getWriter();
+				 response.setContentType("text/html;charset=UTF-8");
 	pw1.println("wpis dodany do bazy");
 				RequestDispatcher view = request.getRequestDispatcher("/dodaj.jsp");      
 		        view.include(request, response); 
-//	        try {
-//	        	Class.forName("com.mysql.jdbc.Driver");
-//				Connection connection2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/schronisko","root","kolor1234");
-//
-//
-//			System.out.println("ok");
-//			String stmt=("insert into zwierzeta(imie,plec,wiek,waga,opiekun)values(?,?,?,?,?) ");
-//			PreparedStatement pst2=connection2.prepareStatement(stmt);
-//			
-//			pst2.setString(1,imie);
-//			pst2.setString(2,plec);
-//			pst2.setInt(3,wiek);
-//			pst2.setInt(4,waga);
-//			pst2.setString(5,opiekun);
-//			pst2.executeUpdate();
-//			
-//			pst2.close();
-//			connection2.close();
-//			System.out.println("wpis dodany do bazy");
-//			 pw1= response.getWriter();
-//				pw1.println("wpis dodany do bazy");
-//				RequestDispatcher view = request.getRequestDispatcher("/dodaj.jsp");      
-//		        view.include(request, response); 
-//	        } catch (ClassNotFoundException e) {
-//
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			} catch (SQLException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-//	      
-//			
-//	}
 
-	}}}
+	}
+	         }}

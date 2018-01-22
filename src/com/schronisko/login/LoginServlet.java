@@ -53,48 +53,6 @@ public class LoginServlet extends HttpServlet {
 			System.out.println("is not valid");} 
          }
 	
-//        try {
-//        	Class.forName("com.mysql.jdbc.Driver");
-//			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/schronisko","root","kolor1234");
-//
-//
-//		System.out.println("ok");
-//		String stmt=("select count(*)AS total FROM users where user=? and password=? ");
-//		PreparedStatement pst=connection.prepareStatement(stmt);
-//		pst.setString(1,username);
-//		pst.setString(2,password);
-//		ResultSet rs1=pst.executeQuery();
-//		rs1.next();
-//		if( rs1.getInt("total")==1) {
-//			  HttpSession session=request.getSession();  
-//		        session.setAttribute(username,username);  
-//		        request.getRequestDispatcher("index.jsp").include(request, response); 
-//			//response.sendRedirect("http://localhost:8080/SchroniskoAPP/index.jsp");	
-//		}
-//		else {
-//			PrintWriter pw4= response.getWriter();
-//				pw4.println("Schronisko jest pe³ne, nie mo¿esz dodaæ.");
-//				RequestDispatcher view = request.getRequestDispatcher("/login.jsp");      
-//		        view.forward(request, response);
-//			
-//			System.out.println("is not valid");}
-//		
-//		
-//		pst.close();
-//		connection.close();
-//        } catch (ClassNotFoundException e) {
-//
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		} catch (SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//	rd=RequestDispatcher.forward("http://localhost:8080/SchroniskoAPP/MenuServlet");
-//	jdbc:mysql://localhost:3306/s
-	
-	
-	
-	//}
+
 	
 	}
