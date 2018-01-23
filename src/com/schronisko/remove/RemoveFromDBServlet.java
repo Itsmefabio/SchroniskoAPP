@@ -16,7 +16,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.schronisko.jpa.DBActions;
-import com.schronisko.status.DBConnectionManager;
 import com.schronisko.status.Zwierze;
 
 

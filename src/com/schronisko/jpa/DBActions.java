@@ -1,16 +1,6 @@
 package com.schronisko.jpa;
 
-
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.ArrayList;
 import java.util.List;
-
-import javax.persistence.EntityManager;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
@@ -18,12 +8,13 @@ import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.query.*;
 
+import com.schronisko.login.Konto;
 import com.schronisko.status.Zwierze;
 
 @SuppressWarnings("deprecation")
 public class DBActions {
 	  
-	protected SessionFactory sessionFactory;
+	protected static SessionFactory sessionFactory;
 	  
 	    public void setup() {
 	    	final StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
@@ -85,9 +76,30 @@ public class DBActions {
 	    
 	 
 
-	    public void KontoLogin(String user, String pass) {
-	    	//to do	       
-	    }
+	    public static boolean KontoLogin(String user, String pass) {
+	    	boolean logintest = false;
+	
+	    	DBActions ifvalid=new DBActions();
+	        ifvalid.setup();
+	    	Session session = sessionFactory.openSession();
+	    	session.beginTransaction();
+	    	Konto k= new Konto();
+	    	 Query<Konto> q=session.createQuery("from Konto k  where username=:username and password=:password");
+	    	 q.setParameter("username",user);
+	    	 q.setParameter("password",pass);
+	    	 session.getTransaction().commit();
+	    	 List<Konto> konta=q.getResultList();
+	    	 
+	    	 if(konta.size()==0) {
+	    		 logintest=false;}
+	    		 else {
+	    			logintest= true;
+	    		 }
+	    	 ifvalid.exit();
+	    
+	    	 return logintest;
+	    	 }
+	    
 	    public long numberOfRows() {
 	    	
 			 
@@ -100,10 +112,12 @@ public class DBActions {
 	    	return count;
 	    	
 	    }
-	    public  List<Zwierze> wypisz2() {
+	    @SuppressWarnings("unchecked")
+		public  List<Zwierze> wypisz2() {
 		
 
 	Session session = sessionFactory.openSession();
+	   
 	 Query<Zwierze> q=session.createQuery("From Zwierze");
 	 List<Zwierze> zwierzeta=q.getResultList();
 	 
@@ -111,5 +125,12 @@ public class DBActions {
 		
 		return zwierzeta; 
 		}
+	    public static List<Zwierze> wypisz() {
+
+			DBActions statusdisp= new DBActions();
+			statusdisp.setup();
+			return statusdisp.wypisz2();
+		}
+
 	}
 

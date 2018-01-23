@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    <%@page import="com.schronisko.status.*,java.util.*"%> 
+    <%@page import="com.schronisko.status.*,java.util.*,com.schronisko.jpa.*"%> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -37,7 +37,7 @@ text-align=right;
 <h1>Lista Zwierząt</h1>  
   
 <%
-List<Zwierze> list=DBConnectionManager.wypisz();
+List<Zwierze> list=DBActions.wypisz();
 request.setAttribute("list",list);
 %>
   

@@ -12,7 +12,7 @@
 <form name="loginForm" method="post" action="LoginServlet">
     Użytkownik: <input type="text" name="username"/> <br/>
     Hasło: <input type="password" name="password"/> <br/>
-    <input type="submit" value="Login" />
+    <input type="submit" value="Zaloguj" />
     
 </form>
 </div>

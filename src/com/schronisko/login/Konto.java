@@ -1,4 +1,4 @@
-package com.schronisko.status;
+package com.schronisko.login;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,6 +22,7 @@ public class Konto {
 	public void setId(int id) {
 		this.id = id;
 	}
+	@Column(name = "user")
 	public String getUsername() {
 		return username;
 	}

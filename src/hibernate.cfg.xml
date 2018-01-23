@@ -12,7 +12,7 @@
     <property name="show_sql">true</property>
         
     <mapping class="com.schronisko.status.Zwierze" />
-     <mapping class="com.schronisko.status.Konto" />
+ 	<mapping class="com.schronisko.login.Konto" />
   </session-factory>
   
 </hibernate-configuration>
