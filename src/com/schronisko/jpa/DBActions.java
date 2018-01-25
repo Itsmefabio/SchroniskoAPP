@@ -56,9 +56,23 @@ public class DBActions {
 	      //todo
 	    }
 	 
-	    public void update() {
-	    	  //todo
-	    }
+	    public void update(int id, String imie, String plec, int waga, int wiek, String opiekun) {
+	    	Zwierze zwierze = new Zwierze();
+	    	    zwierze.setId(id);
+	    	 
+	    	    Session session = sessionFactory.openSession();
+	    	    session.beginTransaction();
+	    	    zwierze.setImie(imie);
+	    	    zwierze.setPlec(plec);
+	    	    zwierze.setWiek(wiek);
+	    	    zwierze.setWaga(waga);
+	    	    zwierze.setOpiekun(opiekun);
+	    	    session.update(zwierze);               
+	    	 
+	    	    session.getTransaction().commit();
+	    	    session.close();
+	    	}
+	    
 	 
 	    public void delete(int id) {
 	    	

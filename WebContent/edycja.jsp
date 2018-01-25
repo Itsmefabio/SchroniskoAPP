@@ -5,20 +5,20 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Dodaj Zwierzę</title>
+<title>Edytuj istniejący wpis</title>
 </head>
 <body>
-<h1>Dodaj Zwierzę</h1>
+<h1>Edytuj Wpis</h1>
 <div class="center_content">
-<form name="dodaj" method="post" action="http://localhost:8080/SchroniskoAPP/AddToDBServlet">
+<form name="edytuj" method="post" action="http://localhost:8080/SchroniskoAPP/EditDBServlet">
+     id: <input type="text" name="id"/> <br/>
     imie: <input type="text" name="imie"/> <br/>
-    plec <input type="radio" name="plec" value="samiec" checked> samiec	
+    plec: <input type="radio" name="plec" value="samiec" checked> samiec	
   <input type="radio" name="plec" value="samica"> samica<br>
      wiek: <input type="text" name="wiek"/> <br/>
       waga: <input type="text" name="waga"/> <br/>
       opiekun: <input type="text" name="opiekun"/> <br/>
-     
-    <input type="submit" value="Dodaj do bazy danych" />
+      <input type="submit" value="Edytuj" />
     <br/>
     <br/>
 </form>

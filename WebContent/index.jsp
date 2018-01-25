@@ -7,33 +7,29 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <style type="text/css" media="all">
-body {
-background-color: linen;
-
-}
-1{
-text-align=right;
-}
-
-
-
 </style>
 <title>strona glowna</title>
 </head>
 <jsp:include page="style.css"/>
-<body "background-color: linen">
-<div class="topnav">
+<body>
+<div class="left">
 <form action="/SchroniskoAPP/MenuServlet" method="post" target="_blank">
     <input type="submit" name="b1" value="Dodaj Zwierze" /><br/>
     <input type="submit" name="b2" value="Usun Zwierze" /><br/>
     
 </form>
+<form action="/SchroniskoAPP/MenuServlet" method="post" target="_blank">
+    <input type="submit" name="b3" value="Edytuj Wpis" /><br/>
+</form>
+</div>
+ <div class="right">   
+
 <form action="/SchroniskoAPP/LogoutServlet" method="post">
 <input type="submit" name="b3" value="Wyloguj" /><br/>
 </form>
 </div>
 <br/>
-<div class="content">
+<div class="center_content">
 <h1>Lista Zwierząt</h1>  
   
 <%

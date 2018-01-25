@@ -4,14 +4,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Manager Schroniska-Strona Logowania</title>
 </head>
 <body>
+<h1>Strona Logowania</h1>
 <jsp:include page="style.css"/>
-<div id=1, align=center >
+<div class="center_content" >
 <form name="loginForm" method="post" action="LoginServlet">
     Użytkownik: <input type="text" name="username"/> <br/>
-    Hasło: <input type="password" name="password"/> <br/>
+    Hasło:      <input type="password" name="password"/> <br/>
     <input type="submit" value="Zaloguj" />
     
 </form>

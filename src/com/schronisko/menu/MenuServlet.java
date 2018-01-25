@@ -37,6 +37,9 @@ public class MenuServlet extends HttpServlet {
 	        } else if (request.getParameter("b2") != null) {
 	        	 request.getRequestDispatcher("/usun.jsp").include(request, response);  
 	        }
+		 if(request.getParameter("b3") != null) {
+			 request.getRequestDispatcher("/edycja.jsp").include(request, response);  
+		 }
 	       
 	}
 

@@ -1,0 +1,42 @@
+<style>
+.right {
+ float: right;
+ background-color: CadetBlue;
+  border: 3px solid #73AD21;
+ padding: 5px;
+ margin-left:0px;
+ width: 150px;
+}
+.center_content {
+ position: relative;
+ background-color: CadetBlue;
+  border: 3px solid #73AD21;
+  margin:70px;
+padding: 30px 30px;
+    border: 3px solid green;
+    text-align: center;
+}
+.right_content {
+ background-color: CadetBlue;
+  border: 3px solid #73AD21;
+ padding: 5px;
+ margin: 0px 170px 0px 170px;
+}
+h1{
+text-align: center;
+}
+.left {
+ float: left;
+ background-color: CadetBlue;
+  border: 3px solid #73AD21;
+ padding: 5px;
+ width: 150px;
+}
+.left_content {
+ background-color: CadetBlue;
+  border: 3px solid #73AD21;;
+ padding: 5px;
+ margin: 170px 0px 0x 170px;
+}
+
+</style>
